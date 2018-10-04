@@ -1,10 +1,10 @@
 {
-  "name": "hello-pluralsighters",
+  "name": "hello-devops",
   "private": true,
   "version": "0.0.1",
-  "description": "Demo app for Pluralsight Docker CI course",
+  "description": "Demo app for DevOps using Docker",
   "main": "app.js",
-  "author": "Nigel Poulton <nigelpoulton@hotmail.com>",
+  "author": "ABC",
   "license": "You'd have to be mad to use this in production :-D",
   "dependencies": {
     "express": "3.2.4",
