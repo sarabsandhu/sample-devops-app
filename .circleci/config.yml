@@ -35,12 +35,14 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
+
+      - run:
+          name: push_to_docker_hub
+          command: $DOCKER_HUB_TRIGGER         
+           
       - run:
           name: test
           command: npm test
-      - run:
-          name: push_to_docker_hub
-          command: $DOCKER_HUB_TRIGGER        
+      
 
         
