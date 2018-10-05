@@ -11,11 +11,11 @@
   "author": "ABC",
   "license": "You'd have to be mad to use this in production :-D",
   "dependencies": {
-    "express": "4.16.3",
-    "pug": "2.0.3",
-    "mocha": "5.2.0"
+    "express": "^4.16.3",
+    "pug": "^2.0.3",
+    "mocha": "^5.2.0"
   },
   "devDependencies": {
-    "supertest": "3.3.0"
+    "supertest": "^3.3.0"
   }
 }
