@@ -6,7 +6,7 @@ MAINTAINER sssingh@medline.com
 RUN yum install epel-release
 
 # Add repo for Node.js 6
-curl --silent --location https://rpm.nodesource.com/setup_6.x | sudo bash -
+RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | sudo bash -
 
 # Enable EPEL for Node.js
 # RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
