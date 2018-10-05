@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.1",
   "description": "Demo app for DevOps using Docker",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha"
+  },
   "main": "app.js",
   "author": "ABC",
   "license": "You'd have to be mad to use this in production :-D",

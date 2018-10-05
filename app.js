@@ -6,7 +6,7 @@ var express = require('express'),
     app = express();
 
 app.set('views', 'views');
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.get('/', function(req, res) {
     res.render('home', {
