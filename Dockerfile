@@ -3,7 +3,7 @@ FROM centos:latest
 MAINTAINER sssingh@medline.com
 
 #enable 
-RUN yum install epel-release
+RUN yum install -y epel-release
 
 # Add repo for Node.js 6
 RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | sudo bash -
