@@ -40,12 +40,12 @@ jobs:
       #     name: push_to_docker_hub
       #     command: $DOCKER_HUB_TRIGGER         
 
-      - run:
-          name: test
-          command: npm test
-
       - deploy:
           name: Push application Docker image
           command: |
             curl -H “Content-Type: application/json” —data ‘{“build”:true}’ -X POST https://registry.hub.docker.com/u/sarabsandhu/sample-devops-app/trigger/021bb13d-fe1e-4cfb-9362-dc088bf4ed6f/
+
+      - run:
+          name: test
+          command: npm test
         
