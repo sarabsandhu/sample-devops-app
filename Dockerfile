@@ -1,5 +1,8 @@
 FROM centos:latest
 
+ARG COMMIT_REF
+ARG BUILD_DATE
+
 MAINTAINER sssingh@medline.com
 
 #enable 
@@ -22,6 +25,9 @@ COPY . /src
 # Install app and dependencies into /src
 RUN cd /src; npm install
 
-EXPOSE 8080
+ENV APP_COMMIT_REF=${COMMIT_REF} \
+    APP_BUILD_DATE=${BUILD_DATE}
+
+EXPOSE 3000
 
 CMD cd /src && node ./app.js

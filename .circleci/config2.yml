@@ -1,0 +1,51 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:4.8.2
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@5'
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+      - run:
+          name: install-npm-wee
+          command: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # - run:
+      #     name: push_to_docker_hub
+      #     command: $DOCKER_HUB_TRIGGER         
+
+      - deploy:
+          name: Push application Docker image
+          command: |
+            curl --data ‘{“build”:true}’ -X POST https://registry.hub.docker.com/u/sarabsandhu/sample-devops-app/trigger/021bb13d-fe1e-4cfb-9362-dc088bf4ed6f/
+
+      - run:
+          name: test
+          command: npm test
+        
