@@ -9,7 +9,7 @@ app.set('views', 'views');
 app.set('view engine', 'pug');
 
 const commitRef = process.env.APP_COMMIT_REF || 'N/A'
-const buildDate = process.env.APP_BUILD_DATE || new Date().toISOString()
+const buildDate = process.env.APP_BUILD_DATE || new Date().toString()
 
 app.get('/', function(req, res) {
     res.render('home', {commitReference: commitRef, currentBuildDate:buildDate});
