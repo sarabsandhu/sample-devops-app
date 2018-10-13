@@ -18,7 +18,12 @@ metadata:
   labels:
     app: ${PROJECT_NAME}
 spec:
-  replicas: 2
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: ${PROJECT_NAME}
