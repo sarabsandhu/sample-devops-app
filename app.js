@@ -7,6 +7,7 @@ var express = require('express'),
 
 app.set('views', 'views');
 app.set('view engine', 'pug');
+app.use("/public", express.static(path.join(__dirname, 'public')));
 
 const commitRef = process.env.APP_COMMIT_REF || 'N/A'
 const buildDate = process.env.APP_BUILD_DATE || new Date().toString()
